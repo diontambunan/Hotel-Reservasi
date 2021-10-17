@@ -1,5 +1,5 @@
  <!-- Masthead-->
-        <header class="masthead">
+ <header class="masthead">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end mb-4">
@@ -19,7 +19,7 @@
                     						
                     						<div class="col-md-3">
                     							<br>
-                    							<button class="btn-btn-block btn-primary mt-3">Check Availability</button>
+                    							<button class="btn-btn-block btn-primary mt-3">Check Ketersediaan</button>
                     						</div>
 
                     					</div>
