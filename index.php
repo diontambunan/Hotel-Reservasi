@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Grand Amethyst</title>
     <?php
     session_start();
     include('header.php');
     include('db_connect.php');
 
+	$query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
+	foreach ($query as $key => $value) {
+		if(!is_numeric($key))
+			$_SESSION['setting_'.$key] = $value;
+	}
     ?>
 
     <style>
@@ -23,7 +27,7 @@
       </div>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="./">Grand Amethyst</a>
+                <a class="navbar-brand js-scroll-trigger" href="./"><?php echo $_SESSION['setting_hotel_name'] ?></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
