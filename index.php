@@ -34,8 +34,13 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=home">Home</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=list">Rooms</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li>
+                    <?php if (isset($_SESSION["pelanggan"])): ?>
+                      <li>&emsp; <a href="logout.php" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Logout</a></li>
+                    <?php else: ?>
+                      <li>&emsp; <a href="login.php" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Login/Register</a></li>
+                    <?php endif ?>
                     </ul>
-                </div>
+                    </div>
             </div>
         </nav>
        
@@ -77,7 +82,7 @@
     </div>
   </div>
         <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">Grand Amethyst <p>&copy; 2021</p></div></div>
+            <div class="container"><div class="small text-center text-muted">Grand Amethyst <Made>&copy; 2021 | Made with <i class="fa fa-heart" aria-hidden="true" style="color:#be1931"></i> by Kelompok 5</p></div></div>
         </footer>
         
        <?php include('footer.php') ?>
