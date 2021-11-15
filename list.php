@@ -1,4 +1,17 @@
 <?php
+if ((function_exists('session_status') 
+&& session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
+session_start();
+}
+$conn = new mysqli("localhost","root","","hotel_db");
+
+#jika tidak ada session (belum login)//
+if (!isset($_SESSION["pelanggan"]))
+{
+	echo "<script>alert('Login terlebih dahulu');</script>";
+	echo "<script>location='login.php';</script>";
+}
+
 $date_in = isset($_POST['date_in']) ? $_POST['date_in'] : date('Y-m-d');
 $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtotime(date('Y-m-d').' + 3 days'));
 ?>
@@ -34,7 +47,7 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
 			        						</div>
 			        						<div class="col-md-3">
 			        							<br>
-			        							<button class="btn-btn-block btn-primary mt-3">Cek Availability</button>
+			        							<button class="btn-btn-block btn-primary mt-3">Check Availability</button>
 			        						</div>
 
 			        					</div>
